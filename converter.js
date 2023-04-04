@@ -1,4 +1,4 @@
-var interruptions = "⁃‐ᐟ`.,⁃‐ᐟ`/;'⁃‐ᐟ`-`"
+var interruptions = "⁃‐ᐟ.;;'⁃',⁃ᐟ/;'⁃‐ᐟ/;'⁃‐ᐟ-"
 
 function conversion() {
     let originalTextElement = document.getElementById("originalText");
@@ -16,9 +16,11 @@ function convertTextToCherokee(originalText, algorithmUsed) {
             convertedText += ' ';
         } else {
             convertedText += returnCherokeeCharacter(originalText.charAt(i).toUpperCase(), algorithmUsed);
-            if(algorithmUsed == "classicDotted" || algorithmUsed == "cyrillicDotted" || algorithmUsed == "blocksDotted" || algorithmUsed == "originalTextDotted") {
+            if(algorithmUsed == "classicDotted" || algorithmUsed == "cyrillicDotted" || algorithmUsed == "blocksDotted" || algorithmUsed == "originalTextDotted" || algorithmUsed == "greekDotted") {
                 convertedText += returnInterruption(interruptions);
                 interruptions++;
+            } else if(algorithmUsed == "originalTextSimpleDotted") {
+                convertedText += " - ";
             }
         }
     }
@@ -38,10 +40,13 @@ function returnCherokeeCharacter(char, algorithmUsed) {
             return "Ꭺ";
         }
         if(algorithmUsed == "cyrillic" || algorithmUsed == "cyrillicDotted") {
-            return "Д";
+            return "А";
         }
         if(algorithmUsed == "blocksDotted") {
             return "🄰";
+        }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Α";
         }
     }
     if(char == 'B') {
@@ -49,10 +54,13 @@ function returnCherokeeCharacter(char, algorithmUsed) {
             return "Ᏸ";
         }
         if(algorithmUsed == "cyrillic" || algorithmUsed == "cyrillicDotted") {
-            return "Ь";
+            return "В";
         }
         if(algorithmUsed == "blocksDotted") {
             return "🄱";
+        }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "β";
         }
     }
     if(char == 'C') {
@@ -65,6 +73,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "blocksDotted") {
             return "🄲";
         }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "С";
+        }
     }
     if(char == 'D') {
         if(algorithmUsed == "classic" || algorithmUsed == "classicDotted") {
@@ -75,6 +86,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         }
         if(algorithmUsed == "blocksDotted") {
             return "🄳";
+        }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Ꭰ";
         }
     }
     if(char == 'E') {
@@ -87,6 +101,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "blocksDotted") {
             return "🄴";
         }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Ε";
+        }
     }
     if(char == 'F') {
         if(algorithmUsed == "classic" || algorithmUsed == "classicDotted") {
@@ -97,6 +114,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         }
         if(algorithmUsed == "blocksDotted") {
             return "🄵";
+        }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Ғ";
         }
     }
     if(char == 'G') {
@@ -109,6 +129,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "blocksDotted") {
             return "🄶";
         }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Ꮆ";
+        }
     }
     if(char == 'H') {
         if(algorithmUsed == "classic" || algorithmUsed == "classicDotted") {
@@ -119,6 +142,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         }
         if(algorithmUsed == "blocksDotted") {
             return "🄷";
+        }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Η";
         }
     }
     if(char == 'I') {
@@ -131,6 +157,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "blocksDotted") {
             return "🄸";
         }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Ι";
+        }
     }
     if(char == 'J') {
         if(algorithmUsed == "classic" || algorithmUsed == "classicDotted") {
@@ -142,6 +171,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "blocksDotted") {
             return "🄹";
         }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Ј";
+        }
     }
     if(char == 'K') {
         if(algorithmUsed == "classic" || algorithmUsed == "classicDotted") {
@@ -150,8 +182,11 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "cyrillic" || algorithmUsed == "cyrillicDotted") {
             return "К";
         }
-        if(algorithmUsed == "blocksDotted") {
+        if(algorithmUsed == "blocksDotted" || algorithmUsed == "greek") {
             return "🄺";
+        }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Κ";
         }
     }
     if(char == 'L') {
@@ -164,6 +199,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "blocksDotted") {
             return "🄻";
         }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Ꮮ";
+        }
     }
     if(char == 'M') {
         if(algorithmUsed == "classic" || algorithmUsed == "classicDotted") {
@@ -175,10 +213,13 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "blocksDotted") {
             return "🄼";
         }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Μ";
+        }
     }
     if(char == 'N') {
         if(algorithmUsed == "classic" || algorithmUsed == "classicDotted") {
-            return "Ꮑ";
+            return "П";
         }
         if(algorithmUsed == "cyrillic" || algorithmUsed == "cyrillicDotted") {
             return "И";
@@ -186,16 +227,22 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "blocksDotted") {
             return "🄽";
         }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Π";
+        }
     }
     if(char == 'O') {
         if(algorithmUsed == "classic" || algorithmUsed == "classicDotted") {
             return "Ꮎ";
         }
         if(algorithmUsed == "cyrillic" || algorithmUsed == "cyrillicDotted") {
-            return "Ф";
+            return "О";
         }
         if(algorithmUsed == "blocksDotted") {
             return "🄾";
+        }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Θ";
         }
     }
     if(char == 'P') {
@@ -208,6 +255,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "blocksDotted") {
             return "🄿";
         }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Ρ";
+        }
     }
     if(char == 'Q') {
         if(algorithmUsed == "classic" || algorithmUsed == "classicDotted") {
@@ -218,6 +268,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         }
         if(algorithmUsed == "blocksDotted") {
             return "🅀";
+        }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Q";
         }
     }
     if(char == 'R') {
@@ -230,6 +283,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "blocksDotted") {
             return "🅁";
         }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Я";
+        }
     }
     if(char == 'S') {
         if(algorithmUsed == "classic" || algorithmUsed == "classicDotted") {
@@ -240,6 +296,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         }
         if(algorithmUsed == "blocksDotted") {
             return "🅂";
+        }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Ꮪ";
         }
     }
     if(char == 'T') {
@@ -252,6 +311,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "blocksDotted") {
             return "🅃";
         }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Τ";
+        }
     }
     if(char == 'U') {
         if(algorithmUsed == "classic" || algorithmUsed == "classicDotted") {
@@ -262,6 +324,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         }
         if(algorithmUsed == "blocksDotted") {
             return "🅄";
+        }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "μ";
         }
     }
     if(char == 'V') {
@@ -274,6 +339,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "blocksDotted") {
             return "🅅";
         }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Ꮩ";
+        }
     }
     if(char == 'W') {
         if(algorithmUsed == "classic" || algorithmUsed == "classicDotted") {
@@ -284,6 +352,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         }
         if(algorithmUsed == "blocksDotted") {
             return "🅆";
+        }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Ψ";
         }
     }
     if(char == 'X') {
@@ -296,6 +367,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "blocksDotted") {
             return "🅇";
         }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Χ";
+        }
     }
     if(char == 'Y') {
         if(algorithmUsed == "classic" || algorithmUsed == "classicDotted") {
@@ -307,6 +381,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         if(algorithmUsed == "blocksDotted") {
             return "🅈";
         }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Υ";
+        }
     }
     if(char == 'Z') {
         if(algorithmUsed == "classic" || algorithmUsed == "classicDotted") {
@@ -317,6 +394,9 @@ function returnCherokeeCharacter(char, algorithmUsed) {
         }
         if(algorithmUsed == "blocksDotted") {
             return "🅉";
+        }
+        if(algorithmUsed == "greekDotted" || algorithmUsed == "greek") {
+            return "Ζ";
         }
     }
 
